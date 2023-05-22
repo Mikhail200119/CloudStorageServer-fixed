@@ -1,0 +1,14 @@
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.DAL/bin/Debug/net6.0/CloudStorage.DAL.deps.json
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.DAL/bin/Debug/net6.0/CloudStorage.DAL.runtimeconfig.json
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.DAL/bin/Debug/net6.0/CloudStorage.DAL.dll
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.DAL/bin/Debug/net6.0/ref/CloudStorage.DAL.dll
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.DAL/bin/Debug/net6.0/CloudStorage.DAL.pdb
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.DAL/obj/Debug/net6.0/CloudStorage.DAL.csproj.AssemblyReference.cache
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.DAL/obj/Debug/net6.0/CloudStorage.DAL.GeneratedMSBuildEditorConfig.editorconfig
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.DAL/obj/Debug/net6.0/CloudStorage.DAL.AssemblyInfoInputs.cache
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.DAL/obj/Debug/net6.0/CloudStorage.DAL.AssemblyInfo.cs
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.DAL/obj/Debug/net6.0/CloudStorage.DAL.csproj.CoreCompileInputs.cache
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.DAL/obj/Debug/net6.0/CloudStorage.DAL.dll
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.DAL/obj/Debug/net6.0/ref/CloudStorage.DAL.dll
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.DAL/obj/Debug/net6.0/CloudStorage.DAL.pdb
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.DAL/obj/Debug/net6.0/CloudStorage.DAL.genruntimeconfig.cache

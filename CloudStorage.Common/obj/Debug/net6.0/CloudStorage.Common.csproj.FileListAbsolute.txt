@@ -1,0 +1,12 @@
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.Common/bin/Debug/net6.0/CloudStorage.Common.deps.json
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.Common/bin/Debug/net6.0/CloudStorage.Common.dll
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.Common/bin/Debug/net6.0/ref/CloudStorage.Common.dll
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.Common/bin/Debug/net6.0/CloudStorage.Common.pdb
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.Common/obj/Debug/net6.0/CloudStorage.Common.csproj.AssemblyReference.cache
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.Common/obj/Debug/net6.0/CloudStorage.Common.GeneratedMSBuildEditorConfig.editorconfig
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.Common/obj/Debug/net6.0/CloudStorage.Common.AssemblyInfoInputs.cache
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.Common/obj/Debug/net6.0/CloudStorage.Common.AssemblyInfo.cs
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.Common/obj/Debug/net6.0/CloudStorage.Common.csproj.CoreCompileInputs.cache
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.Common/obj/Debug/net6.0/CloudStorage.Common.dll
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.Common/obj/Debug/net6.0/ref/CloudStorage.Common.dll
+/home/mikhail/RiderProjects/cloudStorage/CloudStorage.Common/obj/Debug/net6.0/CloudStorage.Common.pdb
