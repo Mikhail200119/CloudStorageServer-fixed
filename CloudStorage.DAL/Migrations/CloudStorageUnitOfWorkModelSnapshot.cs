@@ -31,10 +31,6 @@ namespace CloudStorage.DAL.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ContentHash")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("ContentType")
                         .IsRequired()
                         .HasColumnType("text");

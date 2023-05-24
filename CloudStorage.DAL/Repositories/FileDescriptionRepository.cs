@@ -22,9 +22,6 @@ public class FileDescriptionRepository : EfRepository<FileDescriptionDbModel>, I
         await Table.AddRangeAsync(filesDescriptions);
     }
 
-    public async Task<bool> ContentHashesExistAsync(string userMail, params string[] contentHashes) =>
-        await Table.AnyAsync(file => contentHashes.Contains(file.ContentHash) && file.UploadedBy == userMail);
-
     public async Task<FileDescriptionDbModel?> GetByIdAsync(int id)
     {
         return await Table
@@ -69,8 +66,6 @@ public class FileDescriptionRepository : EfRepository<FileDescriptionDbModel>, I
 
         file.ProvidedName = newName;
     }
-
-    public async Task<bool> ContentHashExist(string contentHash, string userEmail) => await Table.AnyAsync(file => file.ContentHash == contentHash && file.UploadedBy == userEmail);
     public async Task<bool> FileNameExist(string providedFileName, string userEmail) => await Table.AnyAsync(file => file.ProvidedName == providedFileName && file.UploadedBy == userEmail);
 
     public async Task<bool> FileNamesExist(string userMail, params string[] names) =>

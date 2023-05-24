@@ -13,7 +13,6 @@ public class FileDescriptionDbModel : IEntity
     public string ContentType { get; set; }
     public int SizeInBytes { get; set; }
     public DateTime CreatedDate { get; set; }
-    public string ContentHash { get; set; }
     public string UploadedBy { get; set; }
     public string? Extension { get; set; }
 

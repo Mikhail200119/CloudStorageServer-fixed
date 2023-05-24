@@ -22,17 +22,15 @@ public class CloudStorageManager : ICloudStorageManager
     private readonly IUserService _userService;
     private readonly IMapper _mapper;
     private readonly IFileStorageService _fileStorageService;
-    private readonly IDataHasher _dataHasher;
     private readonly IDeduplicationService _deduplicationService;
     private readonly ArchiveOptions _archiveOptions;
 
-    public CloudStorageManager(ICloudStorageUnitOfWork cloudStorageUnitOfWork, IMapper mapper, IUserService userService, IFileStorageService fileStorageService, IDataHasher dataHasher, IOptions<ArchiveOptions> archiveOptions, IDeduplicationService deduplicationService)
+    public CloudStorageManager(ICloudStorageUnitOfWork cloudStorageUnitOfWork, IMapper mapper, IUserService userService, IFileStorageService fileStorageService, IOptions<ArchiveOptions> archiveOptions, IDeduplicationService deduplicationService)
     {
         _cloudStorageUnitOfWork = cloudStorageUnitOfWork;
         _mapper = mapper;
         _userService = userService;
         _fileStorageService = fileStorageService;
-        _dataHasher = dataHasher;
         _deduplicationService = deduplicationService;
         _archiveOptions = archiveOptions.Value;
     }
@@ -51,7 +49,6 @@ public class CloudStorageManager : ICloudStorageManager
         var finalDbModelsToUpload = filesDbModels.Select(model =>
         {
             var content = filesArray.Single(file => file.Name == model.ProvidedName).Content;
-            model.ContentHash = _dataHasher.HashStreamData(content);
             model.UploadedBy = _userService.Current.Email;
             model.Extension = Path.GetExtension(filesArray.Single(file => file.Name == model.ProvidedName).Name)[1..];
 
@@ -76,7 +73,6 @@ public class CloudStorageManager : ICloudStorageManager
             return (model, content);
         }).ToArray();
 
-        //await ValidateCreatedFile(finalDbModelsToUpload);
         await SetFilesThumbnail(dbModelsWithContent);
 
         try
@@ -318,7 +314,6 @@ public class CloudStorageManager : ICloudStorageManager
 
         var newFileDbModel = _mapper.Map<FileDescriptionDbModel>(fileCreateData);
         newFileDbModel.UniqueName = uniqueName;
-        newFileDbModel.ContentHash = _dataHasher.HashStreamData(data);
         newFileDbModel.Extension = Path.GetExtension(archiveFileName)[1..];
         newFileDbModel.UploadedBy = _userService.Current.Email;
         await _cloudStorageUnitOfWork.FileDescription.CreateAsync(newFileDbModel);
@@ -350,27 +345,6 @@ public class CloudStorageManager : ICloudStorageManager
         var diskUsageInBytes = await _deduplicationService.GetFilesDiskUsage(fileNames);
 
         return diskUsageInBytes;
-    }
-
-    private async Task ValidateCreatedFile(params FileDescriptionDbModel[] fileDbModel)
-    {
-        var hashes = fileDbModel.Select(model => model.ContentHash);
-
-        var contentHashesExist = await _cloudStorageUnitOfWork.FileDescription.ContentHashesExistAsync(_userService.Current.Email, hashes.ToArray());
-
-        if (contentHashesExist)
-        {
-            throw new FileContentDuplicationException("A file with such content already exists.");
-        }
-
-        var fileNames = fileDbModel.Select(file => file.ProvidedName);
-
-        var fileNamesExist = await _cloudStorageUnitOfWork.FileDescription.FileNamesExist(_userService.Current.Email, fileNames.ToArray());
-
-        if (fileNamesExist)
-        {
-            throw new FileNameDuplicationException("A file with such name is already exist.");
-        }
     }
 
     private async Task SetFilesThumbnail(params (FileDescriptionDbModel DbModel, Stream Content)[] filesInfo)
